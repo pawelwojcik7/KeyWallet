@@ -1,0 +1,5 @@
+# cmd jako administrator
+docker pull mysql
+docker run --name keywallet -e MYSQL_ROOT_PASSWORD=123456 -d -p 3306:3306 mysql
+
+# potem mysqlWorkbench
