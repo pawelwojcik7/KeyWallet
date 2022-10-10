@@ -12,7 +12,6 @@ import java.util.UUID;
 public class SSH512 implements EncryptAlgorithm {
 
     @SneakyThrows
-    @Override
     public String encrypt(String text) {
 
             MessageDigest md = MessageDigest.getInstance("SHA-512");
@@ -26,7 +25,6 @@ public class SSH512 implements EncryptAlgorithm {
             return hashtext;
     }
 
-    @Override
     public String decrypt(String text) {
         return null;
     }

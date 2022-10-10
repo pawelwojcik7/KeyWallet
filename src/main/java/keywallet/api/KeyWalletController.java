@@ -2,10 +2,8 @@ package keywallet.api;
 
 import keywallet.models.Password;
 import keywallet.models.User;
-import keywallet.providers.Pepper;
 import keywallet.services.PasswordService;
 import lombok.RequiredArgsConstructor;
-import org.graalvm.compiler.lir.LIRInstruction;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,21 +1,24 @@
 package keywallet.services;
 
-import keywallet.DAO.UserDAO;
-import keywallet.providers.EncryptionAlgorithmProvider;
-import keywallet.providers.SaltProvider;
+import keywallet.repository.UserRepository;
+import keywallet.models.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
 
-    private final EncryptionAlgorithmProvider encryptionAlgorithmProvider;
-    private final UserDAO userRepository;
-    private final SaltProvider saltProvider;
+    private UserRepository userRepository;
 
-    public void createUser(){
-        String salt = saltProvider.getSalt();
+    public Optional<User> findById(Integer id){
+        return userRepository.findById(id);
+    }
+
+    public User save(User user){
+        return userRepository.save(user);
     }
 
 }

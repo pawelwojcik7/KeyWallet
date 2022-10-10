@@ -17,8 +17,7 @@ import static javax.xml.crypto.dsig.SignatureMethod.HMAC_SHA512;
 public class HMAC implements EncryptAlgorithm {
 
     @SneakyThrows
-    @Override
-    public String encrypt(String text) {
+    public String encrypt(String text, String key) {
 
         Mac sha512Hmac;
         String result="";
@@ -32,7 +31,7 @@ public class HMAC implements EncryptAlgorithm {
         return result;
     }
 
-    @Override
+
     public String decrypt(String text) {
         return null;
     }

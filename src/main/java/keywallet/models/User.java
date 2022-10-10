@@ -1,28 +1,36 @@
 package keywallet.models;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import org.springframework.lang.Nullable;
+import lombok.Setter;
 
-@Data
+import javax.persistence.*;
+
+
+@Entity
+@Table
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
-    @JsonProperty("id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Integer id;
-    @JsonProperty("login")
+
+    @Column(name = "login", length = 30, nullable = false)
     private String login;
-    @JsonProperty("password_hash")
-    private String password_hash;
-    @JsonProperty("salt")
+
+    @Column(name = "password_hash", length = 512, nullable = false)
+    private String passwordHash;
+
+    @Column(name = "salt", length = 20)
     private String salt;
-    @JsonProperty("isPasswordKeptAsHash")
+
+    @Column(name = "isPasswordKeptAsHash")
     private Boolean isPasswordKeptAsHash;
 
 }
