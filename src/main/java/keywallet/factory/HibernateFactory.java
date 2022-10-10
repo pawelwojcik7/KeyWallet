@@ -17,6 +17,7 @@ public class HibernateFactory {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
         MetadataSources sources = new MetadataSources(registry);
         Metadata metadata = sources.getMetadataBuilder().build();
+        System.out.println("");
         return metadata.getSessionFactoryBuilder().build();
     }
 
